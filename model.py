@@ -49,7 +49,7 @@ class STConv(torch.nn.Module):
         # x = self.conv1_out(x, edge_index, edge_attr=edge_attr)
 
         for i, conv in enumerate(self.GCN_conv):
-            x = conv(x, add_index)  # 注意力层附加的边权值是乘以一个矩阵与计算的注意力系数相加然后在进行特征更新
+            x = conv(x, add_index) 
             if i < self.num_layers - 3:
                 x = self.bns_gcn[i](x)
             x = F.leaky_relu(x)
