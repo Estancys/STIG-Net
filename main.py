@@ -48,7 +48,7 @@ print("已加载数据")
 criterion = torch.nn.BCELoss().cuda()
 # 遍历数据加载器中的批次数据
 # model = GCN(in_channels=4, hidden_channels=2, out_channels=1,num_layers=3,dropout=0.05).cuda()
-model = GATV1(in_channels=4, hidden_channels=2, out_channels=1, num_layers=3, dropout=0.2, heads=8).cuda()
+model = STConv(in_channels=4, hidden_channels=2, out_channels=1, num_layers=3, dropout=0.2, heads=8).cuda()
 
 optimizer = torch.optim.Adam(model.parameters(), lr=args.lr)
 model.reset_parameters()
